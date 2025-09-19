@@ -23,6 +23,7 @@ public class EnemyHealth : MonoBehaviour
         if (attackResultEnemyHealth < 0)
         {
             EnemySpawner.Instance.ReturnToPool(targetEnemy);
+            MoneyManager.Instance.AddMoney(10);
 
         }
         else
