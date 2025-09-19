@@ -31,7 +31,7 @@ public class AttackRange : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-
+        // ±êÇãºê Ä¿¹Ô Å×½ºÆ®
         enemyPoolList.Add(other.gameObject); 
 
     }
@@ -52,7 +52,6 @@ public class AttackRange : MonoBehaviour
                 targetEnemy.GetComponent<EnemyHealth>().TakeDamage(10);
 
             }
-
 
             yield return new WaitForSeconds(1f);
         }
