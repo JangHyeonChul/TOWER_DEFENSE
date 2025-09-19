@@ -17,8 +17,18 @@ public class EnemyHealth : MonoBehaviour
         
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, GameObject targetEnemy)
     {
-        emenyHealth -= damage;
+        int attackResultEnemyHealth = emenyHealth - damage;
+        if (attackResultEnemyHealth < 0)
+        {
+            EnemySpawner.Instance.ReturnToPool(targetEnemy);
+
+        }
+        else
+        {
+            emenyHealth = attackResultEnemyHealth;
+        }
+        
     }
 }

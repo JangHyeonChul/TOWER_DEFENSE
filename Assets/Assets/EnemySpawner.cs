@@ -13,6 +13,22 @@ public class EnemySpawner : MonoBehaviour
     private List<GameObject> enemyPool;
     private Coroutine spawnCorutine;
 
+    // 싱글톤 인스턴스
+    public static EnemySpawner Instance { get; private set; }
+
+    private void Awake()
+    {
+        // 싱글톤 패턴 구현
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject); // 이미 인스턴스가 존재하면 중복된 객체를 파괴
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject); // 씬이 바뀌어도 파괴되지 않도록 설정
+    }
+
     void Start()
     {
         Debug.Log("EnemySpawner started");
@@ -51,7 +67,7 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(20f);
             SpawnEnemy();
         }
     }
