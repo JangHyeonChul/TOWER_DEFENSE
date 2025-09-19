@@ -64,7 +64,7 @@ public class EnemySpawner : MonoBehaviour
             return;
         }
 
-        // 풀에서 비설화된 적 객체를 가져옴
+        // 풀에서 비활성화된 적 객체를 가져옴
         GameObject enemy = GetPooledEnemy();
         if (enemy != null)
         {
@@ -77,7 +77,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    // 풀에서 비설화된 적 객체를 반환
+    // 풀에서 비활성화된 적 객체를 반환
     private GameObject GetPooledEnemy()
     {
         foreach (var enemy in enemyPool)
@@ -90,7 +90,7 @@ public class EnemySpawner : MonoBehaviour
         return null;
     } 
 
-    // 적 객체를 풀로 반환하는 메서드 (적 객체가 비설화될 때 호출)
+    // 적 객체를 풀로 반환하는 메서드 (적 객체가 비활성화될 때 호출)
     public void ReturnToPool(GameObject enemy)
     {
         enemy.SetActive(false);
