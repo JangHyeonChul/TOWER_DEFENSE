@@ -51,7 +51,8 @@ public class AttackRange : MonoBehaviour
             {
                 // Attack the first enemy in the list
                 GameObject targetEnemy = enemyPoolList[0];
-                targetEnemy.GetComponent<EnemyHealth>().TakeDamage(10, targetEnemy);
+                int towerAttackPower = TowerManager.Instance.GetTowerAttackPower();
+                targetEnemy.GetComponent<EnemyHealth>().TakeDamage(towerAttackPower, targetEnemy);
 
             }
 
