@@ -25,7 +25,7 @@ public class EnemyHealth : MonoBehaviour
         {
             EnemySpawner.Instance.ReturnToPool(targetEnemy);
             MoneyManager.Instance.AddMoney(10);
-
+            UIManager.Instance.UpdateMoneyText();
         }
         else
         {
