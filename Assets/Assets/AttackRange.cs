@@ -31,9 +31,11 @@ public class AttackRange : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // 깃허브 커밋 테스트
-        enemyPoolList.Add(other.gameObject); 
-
+        // 적이 공격 사정거리 내에 들어왔을 경우 등록
+        if (other.CompareTag("Enemy"))
+        {
+            enemyPoolList.Add(other.gameObject);
+        }
     }
 
     void OnTriggerExit2D(Collider2D collision)
