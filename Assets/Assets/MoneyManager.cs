@@ -9,7 +9,7 @@ public class MoneyManager : MonoBehaviour
     public static MoneyManager Instance { get; private set; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         // ΩÃ±€≈Ê ∞¥√º «“¥Á
         Instance = this;
@@ -24,5 +24,10 @@ public class MoneyManager : MonoBehaviour
     public void AddMoney(int amount)
     {
         money += amount;
+    }
+
+    public int GetMoney()
+    {
+        return money;   
     }
 }
