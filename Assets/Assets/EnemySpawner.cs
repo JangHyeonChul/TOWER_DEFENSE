@@ -13,6 +13,8 @@ public class EnemySpawner : MonoBehaviour
     private List<GameObject> enemyPool;
     private Coroutine spawnCorutine;
 
+    public int enemyPower = 10;
+
     // ΩÃ±€≈Ê ¿ŒΩ∫≈œΩ∫
     public static EnemySpawner Instance { get; private set; }
 
@@ -111,5 +113,10 @@ public class EnemySpawner : MonoBehaviour
     {
         enemy.GetComponent<EnemyHealth>().ResetEnemyHealth();
         enemy.SetActive(false);
+    }
+
+    public int GetEnemyPower()
+    {
+        return enemyPower;
     }
 }

@@ -3,6 +3,9 @@ using UnityEngine;
 public class TowerManager : MonoBehaviour
 {
 
+
+
+    public int health = 100;
     public int attackPower = 10;
 
     // ΩÃ±€≈Ê ¿ŒΩ∫≈œΩ∫
@@ -29,5 +32,10 @@ public class TowerManager : MonoBehaviour
     {
         return attackPower;
     }
-    
+
+    public void RemoveTowerHealth(int damage)
+    {
+        health -= damage;
+    }
+
 }
