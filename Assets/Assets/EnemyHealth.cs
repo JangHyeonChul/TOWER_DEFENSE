@@ -3,12 +3,13 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
 
-    public int emenyHealth = 100;
+    private int baseEnemyHealth = 100;
+    public int emenyHealth;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        emenyHealth = baseEnemyHealth;
     }
 
     // Update is called once per frame
@@ -31,5 +32,10 @@ public class EnemyHealth : MonoBehaviour
             emenyHealth = attackResultEnemyHealth;
         }
         
+    }
+
+    public void ResetEnemyHealth()
+    {
+        emenyHealth = baseEnemyHealth;
     }
 }

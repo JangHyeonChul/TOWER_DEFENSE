@@ -109,6 +109,7 @@ public class EnemySpawner : MonoBehaviour
     // 적 객체를 풀로 반환하는 메서드 (적 객체가 비활성화될 때 호출)
     public void ReturnToPool(GameObject enemy)
     {
+        enemy.GetComponent<EnemyHealth>().ResetEnemyHealth();
         enemy.SetActive(false);
     }
 }
