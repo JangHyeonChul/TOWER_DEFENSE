@@ -5,6 +5,7 @@ public class EnemyHealth : MonoBehaviour
 
     private int baseEnemyHealth = 100;
     public int emenyHealth;
+    public int enemyPower = 10;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,5 +38,10 @@ public class EnemyHealth : MonoBehaviour
     public void ResetEnemyHealth()
     {
         emenyHealth = baseEnemyHealth;
+    }
+
+    public int GetEnemyPower()
+    {
+        return enemyPower;
     }
 }

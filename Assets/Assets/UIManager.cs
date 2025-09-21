@@ -14,6 +14,8 @@ public class UIManager : MonoBehaviour
     public Button shopBtn;
     public Button shopExitBtn;
 
+    public Button attackUpradeBtn;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,6 +33,11 @@ public class UIManager : MonoBehaviour
         if (shopExitBtn != null)
         {
             shopExitBtn.onClick.AddListener(CloseShopUI);
+        }
+
+        if (attackUpradeBtn != null)
+        {
+            attackUpradeBtn.onClick.AddListener(AttackUprade);
         }
     }
 
@@ -54,5 +61,20 @@ public class UIManager : MonoBehaviour
     void CloseShopUI()
     {
         shopUI.SetActive(false);
+    }
+
+    void AttackUprade()
+    {
+        MoneyManager moneyManager = MoneyManager.Instance;
+        TowerManager towerManager = TowerManager.Instance;
+
+        int money = moneyManager.GetMoney();
+        if (money >= 10)
+        {
+            moneyManager.RemoveMoney(10);
+            towerManager.AddTowerAttackPower(2);
+            UpdateMoneyText();
+
+        }
     }
 }

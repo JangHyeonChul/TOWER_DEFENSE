@@ -12,6 +12,9 @@ public class EnemySpawner : MonoBehaviour
     public GameObject enemyPrefab;
     private List<GameObject> enemyPool;
     private Coroutine spawnCorutine;
+    public float respoawnTime = 5f;
+
+    public int enemyPower = 10;
 
     // ΩÃ±€≈Ê ¿ŒΩ∫≈œΩ∫
     public static EnemySpawner Instance { get; private set; }
@@ -67,7 +70,7 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(20f);
+            yield return new WaitForSeconds(respoawnTime);
             SpawnEnemy();
         }
     }
@@ -111,5 +114,10 @@ public class EnemySpawner : MonoBehaviour
     {
         enemy.GetComponent<EnemyHealth>().ResetEnemyHealth();
         enemy.SetActive(false);
+    }
+
+    public int GetEnemyPower()
+    {
+        return enemyPower;
     }
 }

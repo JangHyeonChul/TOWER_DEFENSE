@@ -1,6 +1,8 @@
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 
 public class AttackRange : MonoBehaviour
@@ -9,6 +11,8 @@ public class AttackRange : MonoBehaviour
 
     private List<GameObject> enemyPoolList;
     private Coroutine attackCoroutine;
+
+    public GameObject basicAttack;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,7 +30,7 @@ public class AttackRange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -38,9 +42,9 @@ public class AttackRange : MonoBehaviour
         }
     }
 
-    void OnTriggerExit2D(Collider2D collision)
+    void OnTriggerExit2D(Collider2D other)
     {
-        enemyPoolList.Remove(collision.gameObject);
+        enemyPoolList.Remove(other.gameObject);
     }
 
     private IEnumerator TowerAttack()
@@ -51,13 +55,23 @@ public class AttackRange : MonoBehaviour
             {
                 // Attack the first enemy in the list
                 GameObject targetEnemy = enemyPoolList[0];
-                targetEnemy.GetComponent<EnemyHealth>().TakeDamage(10, targetEnemy);
+                BasicAttack.Instance.Attack(targetEnemy);
+                //basicAttack.gameObject.SetActive(true);
+                //Vector3 attackPosition = basicAttack.transform.position;
+                //Vector3 targetPosition = targetEnemy.transform.position;
+
+                //Vector3 attackMovePosition = attackPosition - targetPosition;
+
+                //Vector3 direction = attackMovePosition.normalized;
+                //basicAttack.transform.position = direction * 10f;
+
+                //int towerAttackPower = TowerManager.Instance.GetTowerAttackPower();
+                
+                //targetEnemy.GetComponent<EnemyHealth>().TakeDamage(towerAttackPower, targetEnemy);
 
             }
 
             yield return new WaitForSeconds(1f);
         }
-
-
     }
 }

@@ -26,6 +26,11 @@ public class MoneyManager : MonoBehaviour
         money += amount;
     }
 
+    public void RemoveMoney(int amount)
+    {
+        money -= amount;
+    }
+
     public int GetMoney()
     {
         return money;   
