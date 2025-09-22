@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 4675343}
   - component: {fileID: 4675342}
   - component: {fileID: 4675345}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AttackRange
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -1390,7 +1390,7 @@ GameObject:
   - component: {fileID: 1178129815}
   - component: {fileID: 1178129817}
   - component: {fileID: 1178129818}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Attack
   m_TagString: Attack
   m_Icon: {fileID: 0}

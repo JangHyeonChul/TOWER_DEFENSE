@@ -1,11 +1,15 @@
 using UnityEngine;
 
+/** 
+ BasicAttack은 일반 공격 방식으로써, 적 유닛 1마리에게 대미지가 들어갑니다
+ */
 public class BasicAttack : MonoBehaviour
 {
 
     private Collider2D collider;
 
     public GameObject basicAttack;
+    public GameObject tower;
 
     // 싱글톤 인스턴스
     public static BasicAttack Instance { get; private set; }
@@ -42,7 +46,7 @@ public class BasicAttack : MonoBehaviour
         {
             Debug.Log("적 공격 당함");
             basicAttack.SetActive(false);
-            basicAttack.transform.position = transform.position;
+            basicAttack.transform.position = tower.transform.position;
 
             GameObject targetEnemy = other.gameObject;
             int towerAttackPower = TowerManager.Instance.GetTowerAttackPower();
