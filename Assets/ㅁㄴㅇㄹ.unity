@@ -149,7 +149,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1390,6 +1390,7 @@ GameObject:
   - component: {fileID: 1178129815}
   - component: {fileID: 1178129817}
   - component: {fileID: 1178129818}
+  - component: {fileID: 1178129819}
   m_Layer: 7
   m_Name: Attack
   m_TagString: Attack
@@ -1533,6 +1534,19 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &1178129819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178129814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df9cb9c3b5d479a4aa714f180d33cdc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BasicAttack
+  attackObject: {fileID: 0}
 --- !u!1 &1345441858
 GameObject:
   m_ObjectHideFlags: 0
@@ -1907,7 +1921,6 @@ GameObject:
   - component: {fileID: 1657654406}
   - component: {fileID: 1657654405}
   - component: {fileID: 1657654407}
-  - component: {fileID: 1657654408}
   m_Layer: 6
   m_Name: Tower
   m_TagString: Tower
@@ -2063,19 +2076,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ec5328c09e54146bd81d483213ff1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tower
---- !u!114 &1657654408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1657654402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df9cb9c3b5d479a4aa714f180d33cdc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BasicAttack
-  basicAttack: {fileID: 1178129814}
 --- !u!1 &1660115008
 GameObject:
   m_ObjectHideFlags: 0
