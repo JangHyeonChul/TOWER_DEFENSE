@@ -1,20 +1,23 @@
+using NUnit.Framework;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
+    public GameObject attackRange;
 
     private Collider2D towerCollider;
     private Coroutine damageCoroutine;
+    private Coroutine attackCoroutine;
 
     bool IsDamage = false;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         towerCollider = GetComponent<Collider2D>();
-
         damageCoroutine = StartCoroutine(TowerDamage());
+        attackCoroutine = StartCoroutine(TowerAttack());
     }
 
     // Update is called once per frame
@@ -49,6 +52,16 @@ public class Tower : MonoBehaviour
                 TowerManager.Instance.RemoveTowerHealth(enemyPower);
             }
             yield return new WaitForSeconds(2f);
+        }
+    }
+
+    private IEnumerator TowerAttack()
+    {
+        while (true)
+        {
+            AttackRange attackRangeObj = attackRange.GetComponent<AttackRange>();
+            List<GameObject> enemyList = attackRangeObj.GetEnemyList();
+            yield return new WaitForSeconds(1f);
         }
     }
 }

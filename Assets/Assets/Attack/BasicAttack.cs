@@ -7,50 +7,53 @@ public class BasicAttack : MonoBehaviour
 {
 
     private Collider2D collider;
+    public GameObject attackObject;
 
-    public GameObject basicAttack;
-    public GameObject tower;
+    private bool IsChase;
+    private Coroutine chaseCoroutine;
 
     // 싱글톤 인스턴스
     public static BasicAttack Instance { get; private set; }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Instance = this;
-
         collider = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void Attack(GameObject targetObject)
+    public void Attack(GameObject targetObj)
     {
-        basicAttack.SetActive(true);
+        attackObject.SetActive(true);
 
-        Rigidbody2D attackRigidBody = basicAttack.GetComponent<Rigidbody2D>();
+        Rigidbody2D attackRigidBody = attackObject.GetComponent<Rigidbody2D>();
 
-        Vector3 direction = (targetObject.transform.position - basicAttack.transform.position).normalized;
+        Vector3 direction = (targetObj.transform.position - attackObject.transform.position).normalized;
 
         attackRigidBody.AddForce(direction * 10f, ForceMode2D.Impulse);
-
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        // 적과 충돌시 실행
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("적 공격 당함");
-            basicAttack.SetActive(false);
-            basicAttack.transform.position = tower.transform.position;
+            attackObject.SetActive(false);
 
             GameObject targetEnemy = other.gameObject;
             int towerAttackPower = TowerManager.Instance.GetTowerAttackPower();
             targetEnemy.GetComponent<EnemyHealth>().TakeDamage(towerAttackPower, targetEnemy);
+            
         }
+    }
+
+    void ChaseEnemy(GameObject targetObj)
+    {
+
     }
 }
