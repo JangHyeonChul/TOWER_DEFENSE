@@ -2,9 +2,6 @@ using UnityEngine;
 
 public class TowerManager : MonoBehaviour
 {
-
-
-
     public int health = 100;
     public int attackPower = 10;
 
