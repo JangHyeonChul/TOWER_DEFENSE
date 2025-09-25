@@ -6,6 +6,7 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
     public GameObject attackRange;
+    public GameObject attackType;
 
     private Collider2D towerCollider;
     private Coroutine damageCoroutine;
@@ -61,6 +62,16 @@ public class Tower : MonoBehaviour
         {
             AttackRange attackRangeObj = attackRange.GetComponent<AttackRange>();
             List<GameObject> enemyList = attackRangeObj.GetEnemyList();
+            if (enemyList.Count > 0)
+            {
+                GameObject enemyObj = enemyList[0];
+                BasicAttack basicAttack = attackType.GetComponent<BasicAttack>();
+                GameObject attackTypeObj = attackType.gameObject;
+
+                attackTypeObj.transform.position = transform.position;
+                basicAttack.Attack(enemyObj);
+            }
+
             yield return new WaitForSeconds(1f);
         }
     }

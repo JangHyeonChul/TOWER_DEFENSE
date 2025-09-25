@@ -166,7 +166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45c019b696346b3498679add0dea4aec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackRange
-  basicAttack: {fileID: 1178129814}
 --- !u!58 &4675343
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1546,7 +1545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9cb9c3b5d479a4aa714f180d33cdc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasicAttack
-  attackObject: {fileID: 0}
+  attackObject: {fileID: 1178129814}
 --- !u!1 &1345441858
 GameObject:
   m_ObjectHideFlags: 0
@@ -2076,6 +2075,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ec5328c09e54146bd81d483213ff1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tower
+  attackRange: {fileID: 4675340}
+  attackType: {fileID: 1178129814}
 --- !u!1 &1660115008
 GameObject:
   m_ObjectHideFlags: 0

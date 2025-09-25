@@ -9,7 +9,6 @@ public class BasicAttack : MonoBehaviour
     private Collider2D collider;
     public GameObject attackObject;
 
-    private bool IsChase;
     private Coroutine chaseCoroutine;
 
     // ΩÃ±€≈Ê ¿ŒΩ∫≈œΩ∫
@@ -30,7 +29,6 @@ public class BasicAttack : MonoBehaviour
     public void Attack(GameObject targetObj)
     {
         attackObject.SetActive(true);
-
         Rigidbody2D attackRigidBody = attackObject.GetComponent<Rigidbody2D>();
 
         Vector3 direction = (targetObj.transform.position - attackObject.transform.position).normalized;
@@ -50,10 +48,5 @@ public class BasicAttack : MonoBehaviour
             targetEnemy.GetComponent<EnemyHealth>().TakeDamage(towerAttackPower, targetEnemy);
             
         }
-    }
-
-    void ChaseEnemy(GameObject targetObj)
-    {
-
     }
 }

@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-
     public static UIManager Instance { get; private set; }
 
     public TextMeshProUGUI moneyText;
