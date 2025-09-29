@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     public Button shopExitBtn;
 
     public Button attackUpradeBtn;
+    public GameObject spellPanel;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

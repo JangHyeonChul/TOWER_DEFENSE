@@ -3700,6 +3700,7 @@ MonoBehaviour:
   shopBtn: {fileID: 432733697}
   shopExitBtn: {fileID: 746132994}
   attackUpradeBtn: {fileID: 1345441860}
+  spellPanel: {fileID: 1041824177}
 --- !u!1 &1854662552
 GameObject:
   m_ObjectHideFlags: 0
